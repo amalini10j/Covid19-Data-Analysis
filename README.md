@@ -3,6 +3,7 @@ Repository to build a machine learning model on Covid19 dataset for insights and
 
 # Project Team Members
 The following are the members contributing to this project:
+
 	- Alena Swann
 	- Anshu Malini
 	- Michael Williams
