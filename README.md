@@ -43,4 +43,10 @@ The Coronavirus (COVID-19), caused by the SARS-CoV-2 virus, is an infectious dis
 - SVM machine learning is best used when the output data needs to be classifed two categories. For this dataset, did the covid patient die or not die would be our classification.
 - To make the best prediction for our dataset, we will try many different classification algorithms for our problem.
 
+#### List of tasks to be performed to achieve our goal:
+- Read the data file
+- Define the Features and Target Variable
+- Split the Data into Training and Testing sets
+- Train our Model for different Classification Algorithms namely Decision Tree, SVM Classifier, Random Forest Classifier.
+- Select the best Algorithm
     
