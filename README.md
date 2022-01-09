@@ -1,5 +1,5 @@
 # Covid19-Data-Analysis
-Repository to build a machine learning model on Covid19 dataset for insights and prediction
+Repository to build a machine learning model on Covid19 dataset for insights and prediction.
 
 # Project Team Members
 The following are the members contributing to this project:
@@ -15,6 +15,19 @@ The following are the members contributing to this project:
 	- Zoom call every alternate day to discuss the progress 
 	- Group slack channel for all discussions
 
+# Tools
+
+    * Creating database
+        * PostgreSQL
+        * Amazon Web Services(AWS)
+        
+    * Connecting to database
+        * Psycopg2
+        
+    * Analyzing Data
+        * Jupyter Notebook
+        * Pandas
+    
 # Project Description 
 The project aims at predicting Covid-19 mortality in patients with pre-existing health conditions.
 Additional details are mentioned below:
@@ -35,7 +48,7 @@ The Coronavirus (COVID-19), caused by the SARS-CoV-2 virus, is an infectious dis
 - Define the Features and Target Variable
 - Split the Data into Training and Testing sets
 - Train our Model for different Classification Algorithms namely Decision Tree, SVM Classifier, Random Forest Classifier.
-- Select the best Algorithm
+- Select the best Algorithm.
 
 ## Database
 Our provisional database is a CSV file of patient-related information on patients infected with COVID-19, released daily by the Mexican government's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology"). 
@@ -47,27 +60,28 @@ The dataset will be loaded into a PostgreSQL database managed through pgAdmin 4,
 ![master_covid_schema](Images/Database_Schema/master_covid_schema.PNG)
 
 #### Column Descriptions
-	-	ID	Case identifier number
-	-	SEX	Identifies the sex of the patient.
-	-	PATIENT_TYPE Identifies the type of care received by the patient in the unit. It is called an outpatient if you returned home or it is called an inpatient if you were admitted to hospital.
-	-	ENTRY_DATE	Identifies the date of the patient's admission to the care unit.
-	-	DATE_SYMPTOMS	Identifies the date on which the patient's symptoms began.
-	-	DATE_DIED	Identifies the date the patient died.
-	-	INTUBED	Identifies if the patient required intubation.
-	-	PNEUMONIA	Identifies if the patient was diagnosed with pneumonia.
-	-	AGE	Identifies the age of the patient.
-	-	PREGNANCY	Identifies if the patient is pregnant.
-	-	DIABETES	Identifies if the patient has a diagnosis of diabetes.
-	-	COPD	Identifies if the patient has a diagnosis of COPD.
-	-	ASTHMA	Identifies if the patient has a diagnosis of asthma.
-	-	INMSUPR	Identifies if the patient has immunosuppression.
-	-	HYPERTENSION	Identifies if the patient has a diagnosis of hypertension.
-	-	OTHER_DISEASE	Identifies if the patient has a diagnosis of other diseases.
-	-	CARDIOVASCULAR	Identifies if the patient has a diagnosis of cardiovascular disease.
-	-	OBESITY	Identifies if the patient is diagnosed with obesity.
-	-	RENAL_CHRONIC	Identifies if the patient has a diagnosis of chronic kidney failure.
-	-	TOBACCO	Identifies if the patient has a smoking habit.
-	-	CONTACT_OTHER_COVID	Identifies if the patient had contact with any other case diagnosed with SARS CoV-2
-	-	COVID_RES	Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories (INDRE, LESP and LAVE). (Catalog of diagnostic results attached).
-	-	ICU	Identifies if the patient required to enter an Intensive Care Unit.
+    -    ID    Case identifier number
+    -    SEX    Identifies the sex of the patient.
+    -    PATIENT_TYPE Identifies the type of care received by the patient in the unit. It is called an outpatient if you returned home or it is called an inpatient if you were admitted to hospital.
+    -    ENTRY_DATE    Identifies the date of the patient's admission to the care unit.
+    -    DATE_SYMPTOMS    Identifies the date on which the patient's symptoms began.
+    -    DATE_DIED    Identifies the date the patient died.
+    -    INTUBED    Identifies if the patient required intubation.
+    -    PNEUMONIA    Identifies if the patient was diagnosed with pneumonia.
+    -    AGE    Identifies the age of the patient.
+    -    PREGNANCY    Identifies if the patient is pregnant.
+    -    DIABETES    Identifies if the patient has a diagnosis of diabetes.
+    -    COPD    Identifies if the patient has a diagnosis of COPD.
+    -    ASTHMA    Identifies if the patient has a diagnosis of asthma.
+    -    INMSUPR    Identifies if the patient has immunosuppression.
+    -    HYPERTENSION    Identifies if the patient has a diagnosis of hypertension.
+    -    OTHER_DISEASE    Identifies if the patient has a diagnosis of other diseases.
+    -    CARDIOVASCULAR    Identifies if the patient has a diagnosis of cardiovascular disease.
+    -    OBESITY    Identifies if the patient is diagnosed with obesity.
+    -    RENAL_CHRONIC    Identifies if the patient has a diagnosis of chronic kidney failure.
+    -    TOBACCO    Identifies if the patient has a smoking habit.
+    -    CONTACT_OTHER_COVID    Identifies if the patient had contact with any other case diagnosed with SARS CoV-2
+    -    COVID_RES    Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories (INDRE, LESP and LAVE). (Catalog of diagnostic results attached).
+    -    ICU    Identifies if the patient required to enter an Intensive Care Unit.
 
+    
