@@ -68,6 +68,6 @@ The dataset will be loaded into a PostgreSQL database managed through pgAdmin 4,
 	-	RENAL_CHRONIC	Identifies if the patient has a diagnosis of chronic kidney failure.
 	-	TOBACCO	Identifies if the patient has a smoking habit.
 	-	CONTACT_OTHER_COVID	Identifies if the patient had contact with any other case diagnosed with SARS CoV-2
-	-	COVID_RES	Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories. (Catalog of diagnostic results attached).
+	-	COVID_RES	Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories.
 	-	ICU	Identifies if the patient required to enter an Intensive Care Unit.
 
