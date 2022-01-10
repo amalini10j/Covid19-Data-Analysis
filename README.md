@@ -47,7 +47,7 @@ The dataset will be loaded into a PostgreSQL database managed through pgAdmin 4,
 ![master_covid_schema](Images/Database_Schema/master_covid_schema.PNG)
 
 #### Column Descriptions
-	-	ID	Case identifier number
+	-	ID	Case identifier number.
 	-	SEX	Identifies the sex of the patient.
 	-	PATIENT_TYPE Identifies the type of care received by the patient in the unit. It is called an outpatient if you returned home or it is called an inpatient if you were admitted to hospital.
 	-	ENTRY_DATE	Identifies the date of the patient's admission to the care unit.
