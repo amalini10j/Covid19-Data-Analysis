@@ -15,4 +15,17 @@ The following are the members contributing to this project:
 	- Zoom call every alternate day to discuss the progress 
 	- Group slack channel for all discussions
 
+# Tools
+
+    * Creating database
+        * PostgreSQL
+        * Amazon Web Services(AWS)
+        
+    * Connecting to database
+        * Psycopg2
+        
+    * Analyzing Data
+        * Jupyter Notebook
+        * Pandas
+
 
