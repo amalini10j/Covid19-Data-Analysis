@@ -1,5 +1,5 @@
 # Covid19-Data-Analysis
-Repository to build a machine learning model on Covid19 dataset for insights and prediction
+Repository to build a machine learning model on Covid19 dataset for insights and prediction.
 
 # Project Team Members
 The following are the members contributing to this project:
@@ -15,6 +15,19 @@ The following are the members contributing to this project:
 	- Zoom call every alternate day to discuss the progress 
 	- Group slack channel for all discussions
 
+# Tools
+
+    * Creating database
+        * PostgreSQL
+        * Amazon Web Services(AWS)
+        
+    * Connecting to database
+        * Psycopg2
+        
+    * Analyzing Data
+        * Jupyter Notebook
+        * Pandas
+    
 # Project Description 
 The project aims at predicting Covid-19 mortality in patients with pre-existing health conditions.
 Additional details are mentioned below:
@@ -35,7 +48,7 @@ The Coronavirus (COVID-19), caused by the SARS-CoV-2 virus, is an infectious dis
 - Define the Features and Target Variable
 - Split the Data into Training and Testing sets
 - Train our Model for different Classification Algorithms namely Decision Tree, SVM Classifier, Random Forest Classifier.
-- Select the best Algorithm
+- Select the best Algorithm.
 
 ## Database
 Our provisional database is a CSV file of patient-related information on patients infected with COVID-19, released daily by the Mexican government's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology"). 
@@ -71,3 +84,5 @@ The dataset will be loaded into a PostgreSQL database managed through pgAdmin 4,
 	-	COVID_RES	Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories.
 	-	ICU	Identifies if the patient required to enter an Intensive Care Unit.
 
+
+    
