@@ -44,8 +44,8 @@ The following are the members contributing to this project:
         * Pandas
         
     * Dashboard and Presentation
-	    * Tableau Public
-    	* Google Slides
+        * Tableau Public
+        * Google Slides
     
 
 ## Topic and Dataset Selection
