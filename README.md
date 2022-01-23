@@ -1,9 +1,10 @@
-# COVID-19 Patient Data Analysis
+# COVID-19 for the High-Risk
 
 ----------
+### An analysis of COVID-19 mortality in patients with pre-existing medical conditions.
 
 ## Project Description 
-This project aims to use a machine learning classification model to predict COVID-19 mortality based on a patient's demographics and underlying health conditions.
+This project aims to use a machine learning classification model to predict COVID-19 mortality based on a patient's demographics and pre-existing health conditions.
 
 - This dataset is on the individual patent level and includes a patient's   basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
 - We have analyzed this dataset through machine learning to predict several patient outcomes (ICU entry, intubation, and death) based on their demographics and underlying health conditions.
@@ -47,12 +48,12 @@ The following are the members contributing to this project:
     	* Google Slides
     
 
-## Reason For Topic and Dataset Selection
+## Topic and Dataset Selection
 The deadly disease known as COVID-19, caused by the infectious SARS-CoV-2 virus, has been a pandemic sweeping our world since late 2019 and has been at the forefront of world news, research, and crisis management.   The early days of the pandemic had many unknowns, but one trend was beginning to form: COVID-19 symptoms were more severe and mortality was higher in patients with certain underlying health conditions, deeming them 'high-risk'. 
 
 Since then, significant data on COVID-19 patients has been collected and compiled to help better understand the virus and its severity in patients given certain conditions. Machine learning models can be applied to find correlations between COVID-19 mortality and pre-existing health conditions, providing more insight into who is at high risk of a severe case of COVID-19. This insight can be used within hospital resource management and triage prioritization of high-risk patients. 
 
-Mexico's General Directorate of Epidemiology COVID-19 patient database was selected for this predictive study as it provides clear, patient-level, categorical data that is ideal for machine learning. 
+Mexico's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology") COVID-19 database was selected for this predictive study as it provides clear, patient-level, categorical data that is ideal for machine learning. Given the large (and daily-growing) size of this database, we use a subset of the data (1/1/2020-5/31/2020) that has been partially cleaned and obtained from [Kaggle](https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset).
 
 ## Machine Learning Model
 
