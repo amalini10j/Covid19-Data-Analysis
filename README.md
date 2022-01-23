@@ -1,7 +1,22 @@
-# Covid19-Data-Analysis
-Repository to build a machine learning model on Covid19 dataset for insights and prediction.
+# COVID-19 for the High-Risk
 
-# Project Team Members
+----------
+### An analysis of COVID-19 mortality in patients with pre-existing medical conditions.
+
+## Project Description 
+This project aims to use a machine learning classification model to predict COVID-19 mortality based on a patient's demographics and pre-existing health conditions.
+
+- This dataset is on the individual patent level and includes a patient's   basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
+- We have analyzed this dataset through machine learning to predict several patient outcomes (ICU entry, intubation, and death) based on their demographics and underlying health conditions.
+- Our target variable for mortality prediction is the `date_died` column,  which provides a date value for patient death or a 9999-99-99 for patient survival, and is used to create a new `survival` column of binary values to use in our classification model.
+- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the the mortality analysis, to predict a patient's experience. 
+- In addition to predicting patient outcome, we also look at feature importance within the machine learning model as a way to see which underlying conditions are most likely to contribute to patient mortality.
+
+
+**[Click Here](https://docs.google.com/presentation/d/13k2VGWm_J2tI8rKIRiugHNP4i3qLytitx4pIWJaisyA/edit?usp=sharing) for the Google Slides presentation on this topic.**
+**See Google Slides for storyboard outline of Tableau Dashboard*
+
+## Project Team Members
 The following are the members contributing to this project:
 
 	- Alena Swann
@@ -11,11 +26,11 @@ The following are the members contributing to this project:
 	- Sheetal Tondwalkar
 	- Shreya Srivastava
 
-# Team Communication
+## Team Communication
 	- Zoom call every alternate day to discuss the progress 
 	- Group slack channel for all discussions
 
-# Tools
+## Tools
 
     * Creating database
         * PostgreSQL
@@ -27,16 +42,18 @@ The following are the members contributing to this project:
     * Analyzing Data
         * Jupyter Notebook
         * Pandas
+        
+    * Dashboard and Presentation
+	    * Tableau Public
+    	* Google Slides
     
-# Project Description 
-The project aims at predicting Covid-19 mortality in patients with pre-existing health conditions.
-Additional details are mentioned below:
-- This dataset provides information on underlying conditions of patients who tested covid positive.
-- We plan on using this dataset to predict if the patient died or not considering their demographics and underlying health conditions and if they were intubed or not.
-- Our target variable which gives the date when the patient died, else a 9999-99-99 if patient did not die, could be changed to a binary value of 1 and 0 to use for our classification model.
 
-## Reason for topic/dataset selection
-The Coronavirus (COVID-19), caused by the SARS-CoV-2 virus, is an infectious disease caused by a novel virus that has posed varying health risks and caused significant mortality acorss the world. The initial days of the pandemic had many unknowns and it was observed by medical professionals that the covid-19 symptoms were more severe and mortality was high in patients having certain pre-existing health conditions. This understanding was initially based on the general trend of the deaths happening at that point in time but now with significant data available for many covid-19 patients, machine learning models could be applied to scientifically find a correlation between the mortality due to covid-19 and pre-existing health conditions. Hence, the mexican covid-19 patient dataset was selected to study this correlation and to also use machine learning to determine if having any underlying health condition aggravates the symptoms associated with covid-19.
+## Topic and Dataset Selection
+The deadly disease known as COVID-19, caused by the infectious SARS-CoV-2 virus, has been a pandemic sweeping our world since late 2019 and has been at the forefront of world news, research, and crisis management.   The early days of the pandemic had many unknowns, but one trend was beginning to form: COVID-19 symptoms were more severe and mortality was higher in patients with certain underlying health conditions, deeming them 'high-risk'. 
+
+Since then, significant data on COVID-19 patients has been collected and compiled to help better understand the virus and its severity in patients given certain conditions. Machine learning models can be applied to find correlations between COVID-19 mortality and pre-existing health conditions, providing more insight into who is at high risk of a severe case of COVID-19. This insight can be used within hospital resource management and triage prioritization of high-risk patients. 
+
+Mexico's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology") COVID-19 database was selected for this predictive study as it provides clear, patient-level, categorical data that is ideal for machine learning. Given the large (and daily-growing) size of this database, we use a subset of the data (1/1/2020-5/31/2020) that has been partially cleaned and obtained from [Kaggle](https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset).
 
 ## Machine Learning Model
 
@@ -51,13 +68,9 @@ The Coronavirus (COVID-19), caused by the SARS-CoV-2 virus, is an infectious dis
 - Select the best Algorithm.
 
 ## Database
-Our provisional database is a CSV file of patient-related information on patients infected with COVID-19, released daily by the Mexican government's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology"). 
-
-For Machine Learning exploration, we will be using a subset of the data (1/1/2020-5/31/2020) that has been cleaned and obtained from Kaggle ([https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset](https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset)). Once a final model has been decided upon and tested, we will implement the full-scale dataset. 
 
 The dataset will be loaded into a PostgreSQL database managed through pgAdmin 4, and then connected to Jupyter Notebook for machine learning model manipulation. The initial master data table schema is as follows:
 
-![master_covid_schema](Images/Database_Schema/master_covid_schema.PNG)
 
 #### Column Descriptions
 	-	ID	Case identifier number.
