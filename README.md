@@ -1,5 +1,18 @@
-# Covid19-Data-Analysis
+# COVID-19 Patient Data Analysis
+
+----------
+
 Repository to build a machine learning model on Covid19 dataset for insights and prediction.
+
+# Project Description 
+This project aims to predict COVID-19 morbidity based on a patient's pre-existing health conditions.
+
+- This dataset is on the individual patent level and includes a patient's  underlying health conditions, basic demographics, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
+- We have  analyzed this dataset through machine learning to predict several patient outcomes (ICU entry, intubation, and death) based on their demographics and underlying health conditions.
+
+- Our target variable which gives the date when the patient died, else a 9999-99-99 if patient did not die, could be changed to a binary value of 1 and 0 to use for our classification model.
+
+[Click Here](https://docs.google.com/presentation/d/13k2VGWm_J2tI8rKIRiugHNP4i3qLytitx4pIWJaisyA/edit?usp=sharing) for the Google Slides presentation on this topic.
 
 # Project Team Members
 The following are the members contributing to this project:
@@ -28,18 +41,11 @@ The following are the members contributing to this project:
         * Jupyter Notebook
         * Pandas
         
-    * Presentation
+    * Dashboard and Presentation
+	    * Tableau Public
     	* Google Slides
     
-# Project Description 
-The project aims at predicting Covid-19 mortality in patients with pre-existing health conditions.
-Additional details are mentioned below:
 
-- This dataset provides information on underlying conditions of patients who tested covid positive.
-- We plan on using this dataset to predict if the patient died or not considering their demographics and underlying health conditions and if they were intubed or not.
-- Our target variable which gives the date when the patient died, else a 9999-99-99 if patient did not die, could be changed to a binary value of 1 and 0 to use for our classification model.
-
-[Click Here](https://docs.google.com/presentation/d/13k2VGWm_J2tI8rKIRiugHNP4i3qLytitx4pIWJaisyA/edit?usp=sharing) for the Google Slides presentation on this topic.
 
 
 ## Reason for topic/dataset selection
