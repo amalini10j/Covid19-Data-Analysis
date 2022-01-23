@@ -5,12 +5,13 @@
 Repository to build a machine learning model on Covid19 dataset for insights and prediction.
 
 # Project Description 
-This project aims to predict COVID-19 morbidity based on a patient's pre-existing health conditions.
+This project aims to use a machine learning classification model to predict COVID-19 morbidity based on a patient's demographics and underlying health conditions.
 
 - This dataset is on the individual patent level and includes a patient's  underlying health conditions, basic demographics, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
-- We have  analyzed this dataset through machine learning to predict several patient outcomes (ICU entry, intubation, and death) based on their demographics and underlying health conditions.
+- We have analyzed this dataset through machine learning to predict several patient outcomes (ICU entry, intubation, and death) based on their demographics and underlying health conditions.
+- Our target variable for morbidity prediction is the `date_died` column,  which provides a date value for patient death or a 9999-99-99 for patient survival, and is used to create a new `survival` column of binary values to use in our classification model.
+- In addition to predicting patient outcome, we also look at feature importance within the Machine Learning model as a way to see which underlying conditions are most likely to contribute to patient morbidity.
 
-- Our target variable which gives the date when the patient died, else a 9999-99-99 if patient did not die, could be changed to a binary value of 1 and 0 to use for our classification model.
 
 [Click Here](https://docs.google.com/presentation/d/13k2VGWm_J2tI8rKIRiugHNP4i3qLytitx4pIWJaisyA/edit?usp=sharing) for the Google Slides presentation on this topic.
 
