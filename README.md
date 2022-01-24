@@ -29,7 +29,7 @@ The following are the members contributing to this project:
     - Sajini Thiagaraj
     - Sheetal Tondwalkar
     - Shreya Srivastava
-
+    
 ## Team Communication
 
     - Zoom call every alternate day to discuss the progress 
