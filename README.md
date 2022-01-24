@@ -1,7 +1,9 @@
 # COVID-19 for the High-Risk
 
+<img width="749" alt="covid-19" src="https://user-images.githubusercontent.com/88418201/150701093-20516919-e2c9-4890-9eee-7a4367970298.png">
+
 ----------
-### An analysis of COVID-19 mortality in patients with pre-existing medical conditions.
+## An analysis of COVID-19 mortality in patients with pre-existing medical conditions.
 
 ## Project Description 
 
@@ -21,17 +23,17 @@ This project aims to use a machine learning classification model to predict COVI
 
 The following are the members contributing to this project:
 
-	- Alena Swann
-	- Anshu Malini
-	- Michael Williams
-	- Sajini Thiagaraj
-	- Sheetal Tondwalkar
-	- Shreya Srivastava
+    - Alena Swann
+    - Anshu Malini
+    - Michael Williams
+    - Sajini Thiagaraj
+    - Sheetal Tondwalkar
+    - Shreya Srivastava
 
 ## Team Communication
 
-	- Zoom call every alternate day to discuss the progress 
-	- Group slack channel for all discussions
+    - Zoom call every alternate day to discuss the progress 
+    - Group slack channel for all discussions
 
 ## Tools
 
@@ -40,15 +42,15 @@ The following are the members contributing to this project:
         * Amazon Web Services(AWS)
         
     * Connecting to database
-        * Psycopg2
+        * SQLAlchemy
         
     * Analyzing Data
         * Jupyter Notebook
         * Pandas
         
     * Dashboard and Presentation
-	    * Tableau Public
-    	* Google Slides
+        * Tableau Public
+        * Google Slides
     
 
 ## Data selection and questions we hope to answer with the data
@@ -66,29 +68,29 @@ The dataset will be loaded into a AWS RDS database instance by building a connec
 
 
 #### Column Descriptions
-	-	ID	Case identifier number.
-	-	SEX	Identifies the sex of the patient.
-	-	PATIENT_TYPE Identifies the type of care received by the patient in the unit. It is called an outpatient if you returned home or it is called an inpatient if you were admitted to hospital.
-	-	ENTRY_DATE	Identifies the date of the patient's admission to the care unit.
-	-	DATE_SYMPTOMS	Identifies the date on which the patient's symptoms began.
-	-	DATE_DIED	Identifies the date the patient died.
-	-	INTUBED	Identifies if the patient required intubation.
-	-	PNEUMONIA	Identifies if the patient was diagnosed with pneumonia.
-	-	AGE	Identifies the age of the patient.
-	-	PREGNANCY	Identifies if the patient is pregnant.
-	-	DIABETES	Identifies if the patient has a diagnosis of diabetes.
-	-	COPD	Identifies if the patient has a diagnosis of COPD.
-	-	ASTHMA	Identifies if the patient has a diagnosis of asthma.
-	-	INMSUPR	Identifies if the patient has immunosuppression.
-	-	HYPERTENSION	Identifies if the patient has a diagnosis of hypertension.
-	-	OTHER_DISEASE	Identifies if the patient has a diagnosis of other diseases.
-	-	CARDIOVASCULAR	Identifies if the patient has a diagnosis of cardiovascular disease.
-	-	OBESITY	Identifies if the patient is diagnosed with obesity.
-	-	RENAL_CHRONIC	Identifies if the patient has a diagnosis of chronic kidney failure.
-	-	TOBACCO	Identifies if the patient has a smoking habit.
-	-	CONTACT_OTHER_COVID	Identifies if the patient had contact with any other case diagnosed with SARS CoV-2
-	-	COVID_RES	Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories.
-	-	ICU	Identifies if the patient required to enter an Intensive Care Unit.
+    -    ID    Case identifier number.
+    -    SEX    Identifies the sex of the patient.
+    -    PATIENT_TYPE Identifies the type of care received by the patient in the unit. It is called an outpatient if you returned home or it is called an inpatient if you were admitted to hospital.
+    -    ENTRY_DATE    Identifies the date of the patient's admission to the care unit.
+    -    DATE_SYMPTOMS    Identifies the date on which the patient's symptoms began.
+    -    DATE_DIED    Identifies the date the patient died.
+    -    INTUBED    Identifies if the patient required intubation.
+    -    PNEUMONIA    Identifies if the patient was diagnosed with pneumonia.
+    -    AGE    Identifies the age of the patient.
+    -    PREGNANCY    Identifies if the patient is pregnant.
+    -    DIABETES    Identifies if the patient has a diagnosis of diabetes.
+    -    COPD    Identifies if the patient has a diagnosis of COPD.
+    -    ASTHMA    Identifies if the patient has a diagnosis of asthma.
+    -    INMSUPR    Identifies if the patient has immunosuppression.
+    -    HYPERTENSION    Identifies if the patient has a diagnosis of hypertension.
+    -    OTHER_DISEASE    Identifies if the patient has a diagnosis of other diseases.
+    -    CARDIOVASCULAR    Identifies if the patient has a diagnosis of cardiovascular disease.
+    -    OBESITY    Identifies if the patient is diagnosed with obesity.
+    -    RENAL_CHRONIC    Identifies if the patient has a diagnosis of chronic kidney failure.
+    -    TOBACCO    Identifies if the patient has a smoking habit.
+    -    CONTACT_OTHER_COVID    Identifies if the patient had contact with any other case diagnosed with SARS CoV-2
+    -    COVID_RES    Identifies the result of the analysis of the sample reported by the laboratory of the National Network of Epidemiological Surveillance Laboratories.
+    -    ICU    Identifies if the patient required to enter an Intensive Care Unit.
 
 
 ## Exploratory Data Analysis
@@ -96,17 +98,22 @@ The dataset will be loaded into a AWS RDS database instance by building a connec
 -----
 ### Data Preprocessing
 
-1. We have used Python pandas to load the raw data  into the database and then export it into a dataframe for dara cleansing so that we can analyze and make better predictions.
-2. Consolidated the data from various sources by removing duplicates to maintain accuracy and to avoid misleading statistics.
+1. We have used Python pandas to load the raw data  into the database and then load it into a dataframe for data cleansing so that we can analyze and make better predictions.
+2. Consolidated the data from various sources by removing duplicate patient id's to maintain accuracy and to avoid misleading statistics.
 3. We have excluded the covid patients records from our analysis whose results were pending.
 4. Formatted the date columns (entry_date,date_symptoms,date_died) into a standard mm-dd-yyyy date format.
 5. Converted the date_died column into categorical data by populating it into a new `survived` column  for better predictions during the Machine Learning phase.
 
 ### Data Loading
 
-We have chosen Amazon Web Services (AWS) relational database system to store data for our project. We are using PostgreSQL; psycopg2 as the adapter to connect the database with our Python code and using SQLAlchemy which is a Python SQL toolkit to facilitate the communication between pandas and the database.
+We have chosen Amazon Web Services (AWS) relational database system to store data for our project. We are using PostgreSQL to connect the database with our Python code and using SQLAlchemy which is a Python SQL toolkit to facilitate the communication between pandas and the database.
 
-Our database is named `covid19_data_analysis` that stores the static data in four different tables, for our use during the course of the project.
+Our database is named `covid19_data_analysis` that stores the static data in four different tables for our use during the course of the project:
+
+        * covid_dataset
+        * clean_covid_dataset
+        * column_description
+        * catalogs
 
 Below is the entity relation diagrams, showing the relationship between the four tables and their columns:
 
