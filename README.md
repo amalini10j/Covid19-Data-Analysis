@@ -67,6 +67,8 @@ The following are the members contributing to this project:
 
 Refer to the following link for Git Hub structure description.
 
+**[Github Structure Details](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/References/Project%20Materials/GitHub%20Structure%20for%20Covid%20Analysis.docx)**
+
         
 ## Data selection and questions we hope to answer with the data
 
