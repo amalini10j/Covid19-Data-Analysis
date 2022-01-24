@@ -52,7 +52,6 @@ The following are the members contributing to this project:
         * Tableau Public
         * Google Slides
         
-
 ## Data selection and questions we hope to answer with the data
 
 The deadly disease known as COVID-19, caused by the infectious SARS-CoV-2 virus, has been a pandemic sweeping our world since late 2019 and has been at the forefront of world news, research, and crisis management.   The early days of the pandemic had many unknowns, but one trend was beginning to form: COVID-19 symptoms were more severe and mortality was higher in patients with certain underlying health conditions, deeming them 'high-risk'. 
