@@ -51,7 +51,7 @@ The following are the members contributing to this project:
     * Dashboard and Presentation
         * Tableau Public
         * Google Slides
-    
+        
 
 ## Data selection and questions we hope to answer with the data
 
