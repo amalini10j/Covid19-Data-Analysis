@@ -1,0 +1,12 @@
+*Top five things to take away from your dashboard & Tableau Dashboard storyboard
+*Streamline the Datacleanup code into one file and generate clean data
+*Database on AWS
+*Create ER diagram, one use quickdatabase diagram
+*Try out Database connections on AWS
+
+*Predicting ICU
+*Predicting Intubation
+*Feature Importance top 3 in catboost for 1st and 2nd target variable
+
+
+* Add new column date_died
