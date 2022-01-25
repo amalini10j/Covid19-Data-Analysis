@@ -9,10 +9,10 @@
 
 This project aims to use a machine learning classification model to predict COVID-19 mortality based on a patient's demographics and pre-existing health conditions.
 
-- This dataset is on the individual patent level and includes a patient's basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
-- We have analyzed this dataset through machine learning to predict several patient outcomes (ICU entry, intubation, and death) based on their demographics and underlying health conditions.
+- This dataset is on the individual patient level and includes a patient's basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
+- We have analyzed this dataset through machine learning to predict several patient outcomes(ICU entry, intubation, and death) based on their underlying health conditions.
 - Our target variable for mortality prediction is the `date_died` column,  which provides a date value for patient death or a 9999-99-99 for patient survival, and is used to create a new `survived` column of binary values to use in our classification model.
-- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the the mortality analysis, to predict a patient's experience. 
+- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis, to predict a patient's experience. 
 - In addition to predicting patient outcome, we also look at feature importance within the machine learning model as a way to see which underlying conditions are most likely to contribute to patient mortality.
 
 
@@ -49,10 +49,26 @@ The following are the members contributing to this project:
     * Analyzing Data
         * Jupyter Notebook
         * Pandas
-        
+
+	* Machine Learning
+        * Jupyter Notebook
+        * Pandas
+		* sklearn
+		* matplotlib
+		* seaborn
+		* catboost
+		* imblearn
+
     * Dashboard and Presentation
         * Tableau Public
         * Google Slides
+
+## GIT Folder Structure
+
+Refer to the following link for Git Hub structure description.
+
+**[Github Structure Details](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/References/Project%20Materials/GitHub%20Structure%20for%20Covid%20Analysis.docx)**
+
         
 ## Data selection and questions we hope to answer with the data
 
@@ -96,14 +112,23 @@ The dataset will be loaded into a AWS RDS database instance by building a connec
 
 ## Exploratory Data Analysis
 
------
+1. The raw data in csv form was loaded into Pandas for exploration
+2. Most of the data values in the dataset were binary values which made this dataset a classic candidate for implementing binary classification model
+3. The date columns like date_symptoms and entry_date do not have any impact on the model and hence was decided to be dropped from the final set 
+4. The date_died column would be converted into categorical variables as this is the decided target variable for the model
+5. There were certain records with duplicate patient Ids
+6. There were records in the dataset who had their covid results as pending. These would not be required for the analysis
+
+Based on the above exploratory steps, the following pre-processing steps were implemented in Python to get the final clean dataset that would be fed into the machine learning model.
+
+
 ### Data Preprocessing
 
 1. We have used Python pandas to load the raw data  into the database and then load it into a dataframe for data cleansing so that we can analyze and make better predictions.
 2. Consolidated the data from various sources by removing duplicate patient id's to maintain accuracy and to avoid misleading statistics.
 3. We have excluded the covid patients records from our analysis whose results were pending.
-4. Formatted the date columns (entry_date,date_symptoms,date_died) into a standard mm-dd-yyyy date format.
-5. Converted the date_died column into categorical data by populating it into a new `survived` column  for better predictions during the Machine Learning phase.
+4. Formatted the date columns (entry_date, date_symptoms, date_died) into a standard mm-dd-yyyy date format.
+5. Converted the date_died column into categorical data by populating it into a new `survived` column for better predictions during the Machine Learning phase.
 
 ### Data Loading
 
@@ -123,8 +148,94 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 ## Machine Learning Model
 
-- SVM machine learning is best used when the output data needs to be classifed two categories. For this dataset, did the covid patient die or not die would be our classification.
-- To make the best prediction for our dataset, we will try many different classification algorithms for our problem.
+- Machine Learning models for binary classification is best used when the output data needs to be classified into two categories. For this dataset, predicting whether the covid patient will die or survive would be our classification.
+- To make the best prediction for our dataset, have tried two different classification algorithms for our problem - CatBoost and Balanced Random Forest. 
+- Since the dataset is already labeled with the pre-existing health conditions, supervised learning will be used
+
+### Target Variables
+
+- The main target variable is “survived” as the model aims at predicting if there is a probability of death of a patient based on the reported underlying conditions or not
+- For additional experimentation and learning target variables like intubed and ICU will also be predicted using the same model
+
+### Feature Selection and Why?
+
+- The initial feature selection set had all the following columns from the dataset:patient_type, sex, intubed, pneumonia, age, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
+- Further analysis of the dataset was done to check if all columns in the initial feature list have a significant impact on the target variable or not
+- The plot of data for patients who survived or died based on age has a similar distribution. This indicated that age is not a significant feature affecting the death in covid patients. This analysis led to dropping off the age column from the feature list. The following visual was used to perform this analysis:
+
+![Age_covid19_data_analysis](/Images/Age_Distribution.png)
+
+- The model was run with the following features after dropping age column: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
+- The initial output of the feature importance of the ML model revealed that there is a strong positive correlation between the target variable and the features - patient_type, pneumonia, covid_res, intubed, contact_other_covid (Refer screen below)
+
+![Features_covid19_data_analysis](/Images/Feature_imp_target_death.png)
+
+- Since the above correlations are obvious, these columns were dropped from the feature list 
+- This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list
+- The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped
+- The final feature list consisted of only the variables associated with underlying medical conditions like  -  pregnancy, diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid
+- The dataset fed into the ML model was filtered to have only the records of patients who were covid positive
+
+**THE FOLLOWING MODELS WERE TRIED FOR DEATH PREDICTION AND FEATURE IMPORTANCE**
+
+### Balanced Random Forest Classifier Model
+
+- The accuracy of this model was 67% and hence we needed to try out other models
+
+![Random_Forest_Accuracy](/Images/RandomForest_Accuracy.png)
+
+- However the feature importance gave a good results as shown below
+![Feature_Importance_RandomForest](/Images/Feature_imp_RandomForest.png)
+
+- Due to low accuracy, the CatBoost classifier was tried out
+
+### Cat Boost Classifier Model with 10 iterations
+
+- The CatBoost Classifier was tried out first with 10 iterations and the training visual  was as follows:
+
+![CatBoost_10Trees_Training](/Images/CatBoost_Train_10Trees.png)
+
+- The accuracy of the model was as follows:
+
+![CatBoost_10Trees_Accuracy](/Images/CatBoost_Accuracy_10Trees.png)
+
+- The feature importance was as follows:
+
+![CatBoost_10Trees_FeaturesImp](/Images/CatBoost_FeatureImp_10Trees.png)
+
+- Since all models were not seen on the feature importance, the depth of the trees did not seem to be enough and hence CatBoost was tried with 1000 iterations
+
+
+### Cat Boost Classifier Model with 1000 iterations
+
+- The CatBoost Classifier was tried out first with 1000 iterations and the training visual  was as follows:
+
+![CatBoost_1000Trees_Training](/Images/CatBoost_Train_1000Trees.png)
+
+- The accuracy of the model was as follows:
+
+![CatBoost_1000Trees_Accuracy](/Images/CatBoost_Accuracy_1000Trees.png)
+
+- The feature importance was as follows:
+
+![CatBoost_1000Trees_FeaturesImp](/Images/CatBoost_FeatureImp_1000Trees.png)
+
+- The above model gave a good accuracy of 87% and the feature importance graph had a good representation of all features. Hence CatBoost with 1000 iterations was selected as the final model
+
+### Train vs Test Split Size
+
+- Experimentation was done to first split the test and train data into 10% and 90% respectively
+- The best result was obtained between a test and train spit of 33% and 67% respectively and that was retained in all models. The dataset was stratified to get best result
+
+
+### Benefits of CatBoost Classifier
+
+CatBoost was studied using available online resources. The following are the benefits of using CatBoost:
+
+- CatBoost ensures highly accurate model building with great GPU or CPU training speed
+- It works well with categorical variables without the need to preprocess them (methods like one-hot encoding is not required to convert variables)
+- It provides rich inherent visualizations like Feature importance, training process visualization which helps in understanding the model output 
+- It is simple to use with Python package
 
 #### List of tasks to be performed to achieve our goal:
 
@@ -132,7 +243,7 @@ Below is the entity relation diagrams, showing the relationship between the four
 - Define the Features and Target Variable
 - Split the Data into Training and Testing sets
 - Train our Model for different Classification Algorithms namely Decision Tree, SVM Classifier, Random Forest Classifier.
-- Select the best Algorithm.
+- Select the best Algorithm
 
 
 
