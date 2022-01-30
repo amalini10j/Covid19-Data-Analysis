@@ -206,7 +206,7 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 ![CatBoost_10Trees_FeaturesImp](/Images/CatBoost_FeatureImp_10Trees.png)
 
-- Since all models were not seen on the feature importance, the depth of the trees did not seem to be enough and hence CatBoost was tried with 1000 iterations
+- Since all features were not represented on the feature importance graph, the depth of the trees did not seem to be enough and hence CatBoost was tried with 1000 iterations
 
 
 ### Cat Boost Classifier Model with 1000 iterations
