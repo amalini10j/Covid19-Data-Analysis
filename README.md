@@ -63,12 +63,15 @@ The following are the members contributing to this project:
         * Tableau Public
         * Google Slides
 
-## GIT Folder Structure
+## List of tasks to be performed to achieve our goal
 
-Refer to the following link for Git Hub structure description.
-
-**[Github Structure Details](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/References/Project%20Materials/GitHub%20Structure%20for%20Covid%20Analysis.docx)**
-
+- Fialize the dataset to be used
+- Decide the questions to be answered by the dataset
+- Read the data file
+- Define the Features and Target Variable
+- Split the Data into Training and Testing sets
+- Train our Model for different Classification Algorithms namely Decision Tree, SVM Classifier, Random Forest Classifier.
+- Select the best Algorithm
         
 ## Data selection and questions we hope to answer with the data
 
@@ -237,13 +240,14 @@ CatBoost was studied using available online resources. The following are the ben
 - It provides rich inherent visualizations like Feature importance, training process visualization which helps in understanding the model output 
 - It is simple to use with Python package
 
-#### List of tasks to be performed to achieve our goal:
 
-- Read the data file
-- Define the Features and Target Variable
-- Split the Data into Training and Testing sets
-- Train our Model for different Classification Algorithms namely Decision Tree, SVM Classifier, Random Forest Classifier.
-- Select the best Algorithm
+## GIT Folder Structure
+
+Refer to the following link for Git Hub structure description.
+
+**[Github Structure Details](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/References/Project%20Materials/GitHub%20Structure%20for%20Covid%20Analysis.docx)**
+
+
 
 
 
