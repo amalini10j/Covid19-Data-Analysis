@@ -167,7 +167,7 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 - The model was run with the following features after dropping age column: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
 - The initial output of the feature importance of the ML model revealed that there is a strong positive correlation between the target variable and the features - patient_type, pneumonia, covid_res, intubed, contact_other_covid (Refer screen below)
 
-![Features_covid19_data_analysis](/Images/Feature_imp_target_death.png)
+![Features_covid19_data_analysis](/Images/ML_images/Feature_imp_target_death.png)
 
 - Since the above correlations are obvious, these columns were dropped from the feature list.
 - This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list.
