@@ -9,10 +9,10 @@
 
 This project aims to use a machine learning classification model to predict COVID-19 mortality based on a patient's demographics and pre-existing health conditions.
 
-- This dataset is on the individual patient level and includes a patient's basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status, and date of death (if applicable).
+- This dataset is on the individual patient level and includes a patient's basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status and date of death (if applicable).
 - We have analyzed this dataset through machine learning to predict several patient outcomes(ICU entry, intubation, and death) based on their underlying health conditions.
-- Our target variable for mortality prediction is the `date_died` column,  which provides a date value for patient death or a 9999-99-99 for patient survival, and is used to create a new `survived` column of binary values to use in our classification model.
-- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis, to predict a patient's experience. 
+- Our target variable for mortality prediction is the `date_died` column which provides a date value for patient death or a 9999-99-99 for patient survival and is used to create a new `survived` column of binary values to use in our classification model.
+- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis to predict a patient's experience. 
 - In addition to predicting patient outcome, we also look at feature importance within the machine learning model as a way to see which underlying conditions are most likely to contribute to patient mortality.
 
 
@@ -65,7 +65,7 @@ The following are the members contributing to this project:
 
 ## List of tasks to be performed to achieve our goal
 
-- Fialize the dataset to be used
+- Finalize the dataset to be used
 - Decide the questions to be answered by the dataset
 - Read the data file
 - Define the Features and Target Variable
@@ -75,7 +75,7 @@ The following are the members contributing to this project:
         
 ## Data selection and questions we hope to answer with the data
 
-The deadly disease known as COVID-19, caused by the infectious SARS-CoV-2 virus, has been a pandemic sweeping our world since late 2019 and has been at the forefront of world news, research, and crisis management.   The early days of the pandemic had many unknowns, but one trend was beginning to form: COVID-19 symptoms were more severe and mortality was higher in patients with certain underlying health conditions, deeming them 'high-risk'. 
+The deadly disease known as COVID-19, caused by the infectious SARS-CoV-2 virus, has been a pandemic sweeping our world since late 2019 and has been at the forefront of world news, research and crisis management.   The early days of the pandemic had many unknowns, but one trend was beginning to form: COVID-19 symptoms were more severe and mortality was higher in patients with certain underlying health conditions, deeming them 'high-risk'. 
 
 Since then, significant data on COVID-19 patients has been collected and compiled to help better understand the virus and its severity in patients given certain conditions. Machine learning models can be applied to find correlations between COVID-19 mortality and pre-existing health conditions, providing more insight into who is at high risk of a severe case of COVID-19. This insight can be used within hospital resource management and triage prioritization of high-risk patients. 
 
@@ -135,7 +135,7 @@ Based on the above exploratory steps, the following pre-processing steps were im
 
 ### Data Loading
 
-We have chosen Amazon Web Services (AWS) relational database system to store data for our project. We are using PostgreSQL to connect the database with our Python code and using SQLAlchemy which is a Python SQL toolkit to facilitate the communication between pandas and the database.
+We have chosen Postgres on Amazon Web Services (AWS) as our database. We are using SQLAlchemy to connect the database within our Python code which is a Python SQL toolkit to facilitate the communication between pandas and the database.
 
 Our database is named `covid19_data_analysis` that stores the static data in four different tables for our use during the course of the project:
 
@@ -144,7 +144,7 @@ Our database is named `covid19_data_analysis` that stores the static data in fou
         * column_description
         * catalogs
 
-Below is the entity relation diagrams, showing the relationship between the four tables and their columns:
+Below is the entity relation diagrams, showing the relationship among the 2 out 4 tables and their columns:
 
 ![ERD_covid19_data_analysis](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/Database/ERD/ERD_covid19_data_analysis.png)
 
