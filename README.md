@@ -153,7 +153,7 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - Machine Learning models for binary classification is best used when the output data needs to be classified into two categories. For this dataset, predicting whether the covid patient will die or survive would be our classification.
 - To make the best prediction for our dataset, have tried two different classification algorithms for our problem - CatBoost and Balanced Random Forest. 
-- Since the dataset is already labeled with the pre-existing health conditions, supervised learning will be used
+- Since the dataset is already labeled with the pre-existing health conditions, supervised learning will be used.
 
 ### Target Variables
 
