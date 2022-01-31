@@ -153,12 +153,12 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - Machine Learning models for binary classification is best used when the output data needs to be classified into two categories. For this dataset, predicting whether the covid patient will die or survive would be our classification.
 - To make the best prediction for our dataset, have tried two different classification algorithms for our problem - CatBoost and Balanced Random Forest. 
-- Since the dataset is already labeled with the pre-existing health conditions, supervised learning will be used
+- Since the dataset is already labeled with the pre-existing health conditions, supervised learning will be used.
 
 ### Target Variables
 
-- The main target variable is “survived” as the model aims at predicting if there is a probability of death of a patient based on the reported underlying conditions or not
-- For additional experimentation and learning target variables like intubed and ICU will also be predicted using the same model
+- The main target variable is “survived” as the model aims at predicting if there is a probability of death of a patient based on the reported underlying conditions or not.
+- For additional experimentation and learning target variables like intubed and ICU will also be predicted using the same model.
 
 ### Feature Selection and Why?
 
@@ -173,11 +173,11 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 ![Features_covid19_data_analysis](/Images/Feature_imp_target_death.png)
 
-- Since the above correlations are obvious, these columns were dropped from the feature list 
-- This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list
-- The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped
-- The final feature list consisted of only the variables associated with underlying medical conditions like  -  pregnancy, diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid
-- The dataset fed into the ML model was filtered to have only the records of patients who were covid positive
+- Since the above correlations are obvious, these columns were dropped from the feature list.
+- This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list.
+- The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped.
+- The final feature list consisted of only the variables associated with underlying medical conditions like  -  pregnancy, diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid.
+- The dataset fed into the ML model was filtered to have only the records of patients who were covid positive.
 
 **THE FOLLOWING MODELS WERE TRIED FOR DEATH PREDICTION AND FEATURE IMPORTANCE**
 
