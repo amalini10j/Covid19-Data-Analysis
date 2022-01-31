@@ -146,7 +146,7 @@ Our database is named `covid19_data_analysis` that stores the static data in fou
 
 Below is the entity relation diagrams, showing the relationship between the four tables and their columns:
 
-![ERD_covid19_data_analysis](https://user-images.githubusercontent.com/88418201/151725295-d2001cf0-1e10-4972-8904-b3bb18b1b065.png)
+![ERD_covid19_data_analysis](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/Database/ERD/ERD_covid19_data_analysis.png)
 
 
 ## Machine Learning Model
@@ -157,8 +157,8 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 ### Target Variables
 
-- The main target variable is “survived” as the model aims at predicting if there is a probability of death of a patient based on the reported underlying conditions or not
-- For additional experimentation and learning target variables like intubed and ICU will also be predicted using the same model
+- The main target variable is “survived” as the model aims at predicting if there is a probability of death of a patient based on the reported underlying conditions or not.
+- For additional experimentation and learning target variables like intubed and ICU will also be predicted using the same model.
 
 ### Feature Selection and Why?
 
@@ -168,12 +168,12 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 ![Age_covid19_data_analysis](/Images/Age_Distribution.png)
 
-- The model was run with the following features after dropping age column: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu.
+- The model was run with the following features after dropping age column: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
 - The initial output of the feature importance of the ML model revealed that there is a strong positive correlation between the target variable and the features - patient_type, pneumonia, covid_res, intubed, contact_other_covid (Refer screen below)
 
 ![Features_covid19_data_analysis](/Images/Feature_imp_target_death.png)
 
-- Since the above correlations are obvious, these columns were dropped from the feature list .
+- Since the above correlations are obvious, these columns were dropped from the feature list.
 - This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list.
 - The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped.
 - The final feature list consisted of only the variables associated with underlying medical conditions like  -  pregnancy, diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid.
@@ -183,14 +183,14 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 ### Balanced Random Forest Classifier Model
 
-- The accuracy of this model was 67% and hence we needed to try out other models.
+- The accuracy of this model was 67% and hence we needed to try out other models
 
 ![Random_Forest_Accuracy](/Images/RandomForest_Accuracy.png)
 
 - However the feature importance gave a good results as shown below
 ![Feature_Importance_RandomForest](/Images/Feature_imp_RandomForest.png)
 
-- Due to low accuracy, the CatBoost classifier was tried out.
+- Due to low accuracy, the CatBoost classifier was tried out
 
 ### Cat Boost Classifier Model with 10 iterations
 
