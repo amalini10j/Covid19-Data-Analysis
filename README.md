@@ -182,6 +182,10 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - The accuracy of this model was 67% and hence we needed to try out other models
 
+Reason for low accuracy may be due to the following reasons:
+- Fewer number of trees. We can increase the accuracy of the RF algorithm by increasing the number of trees. This will increase the accuracy but model run-time becomes very slow.
+- High correlation among features can lead to low RF model accuracy. While the algorithm itself provides low correlations through feature randomnesss, the features we have selected could have been highly correlated.
+
 ![Random_Forest_Accuracy](/Images/RandomForest_Accuracy.png)
 
 - However the feature importance gave a good results as shown below
