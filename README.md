@@ -162,7 +162,7 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 - Further analysis of the dataset was done to check if all columns in the initial feature list have a significant impact on the target variable or not
 - The plot of data for patients who survived or died based on age has a similar distribution. This indicated that age is not a significant feature affecting the death in covid patients. This analysis led to dropping off the age column from the feature list. The following visual was used to perform this analysis:
 
-![Age_covid19_data_analysis](/Images/Age_Distribution.png)
+![Age_covid19_data_analysis](/Images/ML_images/ML_survival_age_density.png)
 
 - The model was run with the following features after dropping age column: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
 - The initial output of the feature importance of the ML model revealed that there is a strong positive correlation between the target variable and the features - patient_type, pneumonia, covid_res, intubed, contact_other_covid (Refer screen below)
@@ -187,10 +187,10 @@ Why Random Forest fails?
 - Bias can be introduced when one variable is highly important than all other variables. And if RF model excludes this important feature in each node in one tree, the average of these trees will still result in a bias.
 - Random Forest algorithm cannot extrapolate based on the data. This means the predicted values are never outside the training set values for the target variable. Meaning, RF is unable to discover trends that would enable it in extrapolating values that fall outside the training set. When faced with such a scenario, the algorithm assumes that the prediction will fall close to the maximum value in the training set.
 
-![Random_Forest_Accuracy](/Images/RandomForest_Accuracy.png)
+![Random_Forest_Accuracy](/Images/ML_images/RandomForest_Accuracy.png)
 
 - However the feature importance gave a good results as shown below
-![Feature_Importance_RandomForest](/Images/Feature_imp_RandomForest.png)
+![Feature_Importance_RandomForest](/Images/ML_images/Feature_imp_RandomForest.png)
 
 - Due to low accuracy, the CatBoost classifier was tried out
 
@@ -198,11 +198,11 @@ Why Random Forest fails?
 
 - The CatBoost Classifier was tried out first with 10 iterations and the training visual  was as follows:
 
-![CatBoost_10Trees_Training](/Images/CatBoost_Train_10Trees.png)
+![CatBoost_10Trees_Training](/Images/ML_images/CatBoost_Train_10Trees.png)
 
 - The accuracy of the model was as follows:
 
-![CatBoost_10Trees_Accuracy](/Images/CatBoost_Accuracy_10Trees.png)
+![CatBoost_10Trees_Accuracy](/Images/ML_images/CatBoost_Accuracy_10Trees.png)
 
 - The feature importance was as follows:
 
@@ -215,11 +215,11 @@ Why Random Forest fails?
 
 - The CatBoost Classifier was tried out first with 1000 iterations and the training visual  was as follows:
 
-![CatBoost_1000Trees_Training](/Images/CatBoost_Train_1000Trees.png)
+![CatBoost_1000Trees_Training](/Images/ML_images/CatBoost_Train_1000Trees.png)
 
 - The accuracy of the model was as follows:
 
-![CatBoost_1000Trees_Accuracy](/Images/CatBoost_Accuracy_1000Trees.png)
+![CatBoost_1000Trees_Accuracy](/Images/ML_images/CatBoost_Accuracy_1000Trees.png)
 
 - The feature importance was as follows:
 
