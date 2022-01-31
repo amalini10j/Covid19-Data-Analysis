@@ -190,6 +190,7 @@ Why Random Forest fails?
 ![Random_Forest_Accuracy](/Images/ML_images/RandomForest_Accuracy.png)
 
 - However the feature importance gave a good results as shown below
+
 ![Feature_Importance_RandomForest](/Images/ML_images/Feature_imp_RandomForest.png)
 
 - Due to low accuracy, the CatBoost classifier was tried out
