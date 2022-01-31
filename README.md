@@ -201,7 +201,7 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - The feature importance was as follows:
 
-![CatBoost_10Trees_FeaturesImp](/Images/CatBoost_FeatureImp_10Trees.png)
+![CatBoost_10Trees_FeaturesImp](/Images/ML_Images/CatBoost_FeatureImp_10Trees.png)
 
 - Since all models were not seen on the feature importance, the depth of the trees did not seem to be enough and hence CatBoost was tried with 1000 iterations
 
@@ -218,9 +218,9 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - The feature importance was as follows:
 
-![CatBoost_1000Trees_FeaturesImp](/Images/CatBoost_FeatureImp_1000Trees.png)
+![CatBoost_1000Trees_FeaturesImp](/Images/ML_Images/CatBoost1000_FeatureImportance_Death.png)
 
-- The above model gave a good accuracy of 87% and the feature importance graph had a good representation of all features. Hence CatBoost with 1000 iterations was selected as the final model
+- The above model gave a good accuracy of 88% and the feature importance graph had a good representation of all features. Hence CatBoost with 1000 iterations was selected as the final model
 
 ### Train vs Test Split Size
 
