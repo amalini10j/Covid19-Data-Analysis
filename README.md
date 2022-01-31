@@ -169,7 +169,10 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 - Contact other covid was not an underlying condition and hence was excluded from the feature list
 - The other disease column was not a clear indication of an exact underlying condition and was dropped from the feature list
 - The final feature list consisted of only the variables associated with underlying medical conditions like: diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco
-- The dataset fed into the ML model was filtered to have only the records of patients who were covid positive.
+- The dataset fed into the ML model was filtered to have only the records of patients who were covid positive
+- The following pie chart shows the % of deaths for each underlying pre-existing condition for the covid positive patient dataset. This also aided us in finalizing the feature list:
+
+![Features_list_covid19_analysis](/Images/ML_images/Percent_death_cond.png)
 
 
 **THE FOLLOWING MODELS WERE TRIED FOR DEATH PREDICTION AND FEATURE IMPORTANCE**
@@ -178,9 +181,9 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 
 - The accuracy of this model was 67% and hence we needed to try out other models
 
-Why Random Forest fails?
+**Why Random Forest fails?**
 - Fewer number of trees. We can increase the accuracy of the RF algorithm by increasing the number of trees. This will increase the accuracy but model run-time becomes very slow.
-- High correlation among features can lead to low RF model accuracy. While the algorithm itself provides low correlations through feature randomnesss, the features we have selected could have been highly correlated.
+- High correlation among features can lead to low RF model accuracy. While the algorithm itself provides low correlations through feature randomness, the features we have selected could have been highly correlated.
 - Bias can be introduced when one variable is highly important than all other variables. And if RF model excludes this important feature in each node in one tree, the average of these trees will still result in a bias.
 - Random Forest algorithm cannot extrapolate based on the data. This means the predicted values are never outside the training set values for the target variable. Meaning, RF is unable to discover trends that would enable it in extrapolating values that fall outside the training set. When faced with such a scenario, the algorithm assumes that the prediction will fall close to the maximum value in the training set.
 
@@ -240,9 +243,9 @@ CatBoost was studied using available online resources. The following are the ben
 - It provides rich inherent visualizations like Feature importance, training process visualization which helps in understanding the model output 
 - It is simple to use with Python package
 - Catboost requires minimal data preparation
-- Why choose Catboost over other gradient boosting on decision trees (GBDT) alogrithms?
+- Why choose Catboost over other gradient boosting on decision trees (GBDT) algorithms?
   - Catboost prediction time is 13-16 times faster than XGBoost and LightGBM according to its creator Yandex researchers and engineers.
-  - Catboost default paramters offers a better starting point than other GB algorithms which is especially useful for ML beginners.
+  - Catboost default parameters offers a better starting point than other GB algorithms which is especially useful for ML beginners.
 
 
 ## GIT Folder Structure
