@@ -182,11 +182,11 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - The accuracy of this model was 67% and hence we needed to try out other models
 
-Reason for low accuracy may be due to the following reasons:
+Why Random Forest fails?
 - Fewer number of trees. We can increase the accuracy of the RF algorithm by increasing the number of trees. This will increase the accuracy but model run-time becomes very slow.
 - High correlation among features can lead to low RF model accuracy. While the algorithm itself provides low correlations through feature randomnesss, the features we have selected could have been highly correlated.
 - Bias can be introduced when one variable is highly important than all other variables. And if RF model excludes this important feature in each node in one tree, the average of these trees will still result in a bias.
-- Random Forest algorithm cannot extrapolate based on the data. This means the predicted values are never outside the training set values for the target variable.
+- Random Forest algorithm cannot extrapolate based on the data. This means the predicted values are never outside the training set values for the target variable. Meaning, RF is unable to discover trends that would enable it in extrapolating values that fall outside the training set. When faced with such a scenario, the algorithm assumes that the prediction will fall close to the maximum value in the training set.
 
 ![Random_Forest_Accuracy](/Images/RandomForest_Accuracy.png)
 
