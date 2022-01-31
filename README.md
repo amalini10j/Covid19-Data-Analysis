@@ -59,7 +59,7 @@ The following are the members contributing to this project:
         * Tableau Public
         * Google Slides
 
-## List of tasks to be performed to achieve our goal
+## Tasks performed to achieve our goal
 
 - Finalize the dataset to be used
 - Decide the questions to be answered by the dataset
@@ -115,7 +115,7 @@ The dataset will be loaded into a AWS RDS database instance by building a connec
 2. Most of the data values in the dataset were binary values which made this dataset a classic candidate for implementing binary classification model
 3. The date columns like date_symptoms and entry_date do not have any impact on the model and hence was decided to be dropped from the final set 
 4. The date_died column would be converted into categorical variables as this is the decided target variable for the model
-5. There were certain records with duplicate patient Ids
+5. There were certain records with patient Ids having 0 that need to be removed
 6. There were records in the dataset who had their covid results as pending. These would not be required for the analysis
 
 Based on the above exploratory steps, the following pre-processing steps were implemented in Python to get the final clean dataset that would be fed into the machine learning model.
@@ -148,32 +148,29 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 ## Machine Learning Model
 
 - Machine Learning models for binary classification is best used when the output data needs to be classified into two categories. For this dataset, predicting whether the covid patient will die or survive would be our classification.
-- To make the best prediction for our dataset, have tried two different classification algorithms for our problem - CatBoost and Balanced Random Forest. 
+- To make the best prediction for our dataset, we tried two different classification algorithms for our problem - CatBoost and Balanced Random Forest. 
 - Since the dataset is already labeled with the pre-existing health conditions, supervised learning will be used.
 
 ### Target Variables
 
 - The main target variable is “survived” as the model aims at predicting if there is a probability of death of a patient based on the reported underlying conditions or not.
-- For additional experimentation and learning target variables like intubed and ICU will also be predicted using the same model.
+- For additional experimentation and learning, target variables like intubed and ICU will also be predicted using the same model.
 
 ### Feature Selection and Why?
 
-- The initial feature selection set had all the following columns from the dataset:patient_type, sex, intubed, pneumonia, age, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
-- Further analysis of the dataset was done to check if all columns in the initial feature list have a significant impact on the target variable or not
-- The plot of data for patients who survived or died based on age has a similar distribution. This indicated that age is not a significant feature affecting the death in covid patients. This analysis led to dropping off the age column from the feature list. The following visual was used to perform this analysis:
-
-![Age_covid19_data_analysis](/Images/ML_images/ML_survival_age_density.png)
-
-- The model was run with the following features after dropping age column: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
-- The initial output of the feature importance of the ML model revealed that there is a strong positive correlation between the target variable and the features - patient_type, pneumonia, covid_res, intubed, contact_other_covid (Refer screen below)
+- In the first pass, the model was run with the following features after dropping age column as the intent of this model was not to study the effect of age on covid deaths: patient_type, sex, intubed, pneumonia, pregnancy, diabetes, copd, asthma, inmsupr, hypertension, other_disease, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid, icu
+- The initial output of the feature importance of the ML model revealed that there is a strong positive correlation between the target variable and the features - patient_type, intubed and icu. Since the above correlations were obvious, these columns were dropped from the feature list. Refer the figure below for the initial feature importance output.
 
 ![Features_covid19_data_analysis](/Images/ML_images/Feature_imp_target_death.png)
-
-- Since the above correlations are obvious, these columns were dropped from the feature list.
-- This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list.
-- The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped.
-- The final feature list consisted of only the variables associated with underlying medical conditions like  -  pregnancy, diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid.
+ 
+- As pneumonia was not an underlying health condition but was a result of the covid disease, this was also dropped from the feature list
+- Our model was not built with an intent to study the relationship of gender to covid deaths and hence sex was dropped from the feature list
+- Pregnancy made up a very small fraction of the total death count (0.06%) but due to some internal correlation, it was skewing the feature importance results and hence was dropped from the feature list
+- Contact other covid was not an underlying condition and hence was excluded from the feature list
+- The other disease column was not a clear indication of an exact underlying condition and was dropped from the feature list
+- The final feature list consisted of only the variables associated with underlying medical conditions like: diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco
 - The dataset fed into the ML model was filtered to have only the records of patients who were covid positive.
+
 
 **THE FOLLOWING MODELS WERE TRIED FOR DEATH PREDICTION AND FEATURE IMPORTANCE**
 
