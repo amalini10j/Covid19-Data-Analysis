@@ -175,7 +175,7 @@ Below is the entity relation diagrams, showing the relationship between the four
 
 - Since the above correlations are obvious, these columns were dropped from the feature list 
 - This modeling was not intended to study the relation of gender to covid deaths and hence sex was also dropped from the feature list
-- The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped
+- The modeling was not intended to study the relation of icu admission to covid deaths as this too has an obvious positive correlation and hence icu was also dropped.
 - The final feature list consisted of only the variables associated with underlying medical conditions like  -  pregnancy, diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco, contact_other_covid
 - The dataset fed into the ML model was filtered to have only the records of patients who were covid positive
 
