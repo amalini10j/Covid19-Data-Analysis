@@ -146,7 +146,7 @@ Our database is named `covid19_data_analysis` that stores the static data in fou
 
 Below is the entity relation diagrams, showing the relationship between the four tables and their columns:
 
-![ERD_covid19_data_analysis](https://user-images.githubusercontent.com/88418201/150700027-e0f1169b-eea0-4194-82f7-11cfdd5f1f9d.png)
+![ERD_covid19_data_analysis](https://github.com/amalini10j/Covid19-Data-Analysis/blob/main/Database/ERD/ERD_covid19_data_analysis.png)
 
 
 ## Machine Learning Model
