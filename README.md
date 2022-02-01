@@ -17,9 +17,9 @@ This project aims to use a machine learning classification model to predict COVI
 
 
 **[Click Here](https://docs.google.com/presentation/d/13k2VGWm_J2tI8rKIRiugHNP4i3qLytitx4pIWJaisyA/edit?usp=sharing) for the Google Slides presentation on this topic.**
-**See Google Slides for storyboard outline of Tableau Dashboard*
 
-Our **final dashboard** will be linked as a Tableau Public Story like **[this one](https://public.tableau.com/app/profile/michael.williams1170/viz/COVID-19-Data-Analysis-S3/COVID-19Survival?publish=yes)**. The Tableau story will include multiple dashboards with interactive filters.
+
+**[Click Here](https://public.tableau.com/app/profile/alena.swann/viz/COVID-19-Data-Analysis-S4/COVID-19Survival?publish=yes) for the Tableau Dashboard on this topic.**
 
 ## Project Team Members
 
