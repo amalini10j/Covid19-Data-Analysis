@@ -12,7 +12,7 @@ This project aims to use a machine learning classification model to predict COVI
 - This dataset is on the individual patient level and includes a patient's basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status and date of death (if applicable).
 - We have analyzed this dataset through machine learning to predict several patient outcomes(ICU entry, intubation, and death) based on their underlying health conditions.
 - Our target variable for mortality prediction is the `date_died` column which provides a date value for patient death or a 9999-99-99 for patient survival and is used to create a new `survived` column of binary values to use in our classification model.
-- The `ICU` and `Intubated` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis to predict a patient's experience. 
+- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis to predict a patient's experience. 
 - In addition to predicting patient outcome, we also look at feature importance within the machine learning model as a way to see which underlying conditions are most likely to contribute to patient mortality.
 
 
@@ -75,7 +75,7 @@ The deadly disease known as COVID-19, caused by the infectious SARS-CoV-2 virus,
 
 Since then, significant data on COVID-19 patients has been collected and compiled to help better understand the virus and its severity in patients given certain conditions. Machine learning models can be applied to find correlations between COVID-19 mortality and pre-existing health conditions, providing more insight into who is at high risk of a severe case of COVID-19. This insight can be used within hospital resource management and triage prioritization of high-risk patients. 
 
-Mexico's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology") COVID-19 database was selected for this predictive study as it provides clear, patient-level, categorical data that is ideal for machine learning. Given the large (and daily-growing) size of this database, we use a subset of the data (1/1/2020-5/31/2020) that has been partially cleaned and obtained from [Kaggle](https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset).
+Mexico's [Open Data General Directorate of Epidemiology](https://www.gob.mx/salud/documentos/datos-abiertos-152127 "Open Data General Directorate of Epidemiology") COVID-19 database was selected for this predictive study as it provides clear, patient-level, categorical data that is ideal for machine learning. Given the large (and daily growing) size of this database, we use a subset of the data (1/1/2020-5/31/2020) that has been partially cleaned and obtained from [Kaggle](https://www.kaggle.com/tanmoyx/covid19-patient-precondition-dataset).
 
 
 ## Database
@@ -170,7 +170,7 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 - The other disease column was not a clear indication of an exact underlying condition and was dropped from the feature list
 - The final feature list consisted of only the variables associated with underlying medical conditions like: diabetes, copd, asthma, inmsupr, hypertension, cardiovascular, obesity, renal_chronic, tobacco
 - The dataset fed into the ML model was filtered to have only the records of patients who were covid positive
-- The following pie chart shows the % of deaths for each underlying pre-existing condition for the covid positive patient dataset. This also aided us in finalizing the feature list:
+- The following pie chart shows the percentage of deaths for each underlying pre-existing condition for the covid positive patient dataset. This also aided us in finalizing the feature list:
 
 ![Features_list_covid19_analysis](/Images/ML_images/Percent_death_cond.png)
 
@@ -226,7 +226,17 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 
 ![CatBoost_1000Trees_FeaturesImp](Images/ML_images/CatBoost1000_FeatureImportance_Death.PNG)
 
-- The above model gave a good accuracy of 88% and the feature importance graph had a good representation of all features. Hence CatBoost with 1000 iterations was selected as the final model
+- The confusion matrix and classification report is as follows:
+
+![CatBoost_Confusion_Matrix](Images/ML_images/ConfusionMatrix_Patient_Death.png)
+
+	- The recall is an important parameter for this model as false negative prediction of death is 	  not desirable
+	- After multiple iterations, the recall achieved for predicting patient death was close to 	  60%
+	- The next steps here will be to work on further optimizing the model to improve recall
+
+- The above model gave a good accuracy of 88% and the feature importance graph had a good representation of all features
+- Since finding the top underlying conditions contributing to the patient mortality was the main goal of this model, the accuracy metric was good enough for this experiment. Hence CatBoost with 1000 iterations was selected as the final model.
+
 
 ### Train vs Test Split Size
 
@@ -259,8 +269,8 @@ When examining these top three features (diabetes, hypertension, and obesity) in
 
 ![top features dataset analysis](Images/TopFeatures_Dataset.PNG)
 
-These three conditions were the most pervasive in our COVID-19 postive patient dataset, with diabetes reporting 36,040 patients, hypertension with 44,150 patients, and obesity with 43,098 patients. For reference, the next most pervasive condition was tobacco use with rough 17,045 patients reported, followed by asthma with only about 6,045 patients.
-Next, after accounting for these larger and relatively similar sample sizes, it appears that the higher the death percentage roughly translates to the greater feature importance in the model. As these 3 conditions have similar sample sizes, diabetes ranks as the top condition with it's slighly higher death percentage.
+These three conditions were the most pervasive in our COVID-19 positive patient dataset, with diabetes reporting 36,040 patients, hypertension with 44,150 patients, and obesity with 43,098 patients. For reference, the next most pervasive condition was tobacco use with rough 17,045 patients reported, followed by asthma with only about 6,045 patients.
+Next, after accounting for these larger and relatively similar sample sizes, it appears that the higher the death percentage roughly translates to the greater feature importance in the model. As these 3 conditions have similar sample sizes, diabetes ranks as the top condition with its slightly higher death percentage.
 
 Some other conditions do have higher death percentages, but they are limited by smaller sample sizes, and so are considered less important in the model prediction. For example, COPD has a death percentage of 34.43% but only 3,857 patients in the dataset reported having COPD, and so it is ranked as only fourth in feature importance for the prediction model.
 
@@ -274,24 +284,24 @@ We used the same CatBoost Classifier model and adjusted our target variable from
 **Running 100 iterations for this ICU prediction**: 
 
 
-- the model had an accuracy of 71%:
+- The model had an accuracy of 71%:
 
 ![ICU accuracy](Images/ML_images/CatBoost100_ICU_Accuracy.PNG)
 
-- the model's feature importance was as follows:
+- The model's feature importance was as follows:
 
 ![ICU feature importance](Images/ML_images/CatBoost100_FeatureImportance_ICU.PNG)
 
 
-We also adjusted the model's target variable to 'intubed' to predict if a patient's is likely to be intubated.
+We also adjusted the model's target variable to 'intubed' to predict if a patient is likely to be intubated.
 
 **Running 100 iterations for intubation prediction**:
 
-- model had an accuracy of 71%:
+- Model had an accuracy of 71%:
 
 ![Intubation accuracy](Images/ML_images/CatBoost100_Intubed_Accuracy.PNG)
 
-- the model's feature importance was as follows:
+- The model's feature importance was as follows:
 
 ![intubation feature importance](Images/ML_images/CatBoost100_FeatureImportance_Intubed.PNG)
 
