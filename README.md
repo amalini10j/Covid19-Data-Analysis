@@ -258,7 +258,7 @@ We used the same CatBoost Classifier model and adjusted our target variable from
 
 - the model had an accuracy of 71%:
 
-![ICU accuracy]()
+![ICU accuracy](Images/ML_images/CatBoost100_ICU_Accuracy.PNG)
 
 - the model's feature importance was as follows:
 
@@ -271,7 +271,7 @@ We also adjusted the model's target variable to 'intubed' to predict if a patien
 
 - model had an accuracy of 71%:
 
-![Intubation accuracy]()
+![Intubation accuracy](Images/ML_images/CatBoost100_Intubed_Accuracy.PNG)
 
 - the model's feature importance was as follows:
 
