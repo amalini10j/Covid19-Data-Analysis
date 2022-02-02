@@ -12,7 +12,7 @@ This project aims to use a machine learning classification model to predict COVI
 - This dataset is on the individual patient level and includes a patient's basic demographics, binary values for having common underlying health conditions, COVID-19 result status, ICU and intubation status and date of death (if applicable).
 - We have analyzed this dataset through machine learning to predict several patient outcomes(ICU entry, intubation, and death) based on their underlying health conditions.
 - Our target variable for mortality prediction is the `date_died` column which provides a date value for patient death or a 9999-99-99 for patient survival and is used to create a new `survived` column of binary values to use in our classification model.
-- The `ICU` and `Intubed` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis to predict a patient's experience. 
+- The `ICU` and `Intubated` columns are similarly set as binary values (1-yes or 2-no) based on whether a patient experienced ICU entry or intubation. These target variables are used individually within the classification model, along with the same features as the mortality analysis to predict a patient's experience. 
 - In addition to predicting patient outcome, we also look at feature importance within the machine learning model as a way to see which underlying conditions are most likely to contribute to patient mortality.
 
 
@@ -181,11 +181,11 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 
 - The accuracy of this model was 67% and hence we needed to try out other models
 
-**Why Random Forest fails?**
-- Fewer number of trees. We can increase the accuracy of the RF algorithm by increasing the number of trees. This will increase the accuracy but model run-time becomes very slow.
-- High correlation among features can lead to low RF model accuracy. While the algorithm itself provides low correlations through feature randomness, the features we have selected could have been highly correlated.
-- Bias can be introduced when one variable is highly important than all other variables. And if RF model excludes this important feature in each node in one tree, the average of these trees will still result in a bias.
-- Random Forest algorithm cannot extrapolate based on the data. This means the predicted values are never outside the training set values for the target variable. Meaning, RF is unable to discover trends that would enable it in extrapolating values that fall outside the training set. When faced with such a scenario, the algorithm assumes that the prediction will fall close to the maximum value in the training set.
+**Why Random Forest failed?**
+- Fewer number of trees was used. We can increase the accuracy of the RF algorithm by increasing the number of trees. This will increase the accuracy but model run-time becomes very slow.
+- High correlation among features can lead to low random forest model accuracy. While the algorithm itself provides low correlations through feature randomness, the features we have selected could have been highly correlated.
+- Bias can be introduced when one variable is more important than all other variables. If Random Forest model excludes this important feature in each node in one tree, the average of these trees will still result in a bias.
+- Random Forest algorithm cannot extrapolate based on the data. This means the predicted values are never outside the training set values for the target variable. Meaning, Random Forest is unable to discover trends that would enable it in extrapolating values that fall outside the training set. When faced with such a scenario, the algorithm assumes that the prediction will fall close to the maximum value in the training set.
 
 ![Random_Forest_Accuracy](/Images/ML_images/RandomForest_Accuracy.png)
 
@@ -214,7 +214,7 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 
 ### Cat Boost Classifier Model with 1000 iterations
 
-- The CatBoost Classifier was tried out first with 1000 iterations and the training visual  was as follows:
+- The CatBoost Classifier was then tried out with 1000 iterations and the training visual  was as follows:
 
 ![CatBoost_1000Trees_Training](/Images/ML_images/CatBoost_Train_1000Trees.png)
 
@@ -231,7 +231,8 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 ### Train vs Test Split Size
 
 - Experimentation was done to first split the test and train data into 10% and 90% respectively
-- The best result was obtained between a test and train spit of 33% and 67% respectively and that was retained in all models. The dataset was stratified to get best result
+- The best result was obtained between a test and train spit of 33% and 67% respectively and that was retained in all models
+- The dataset was stratified to get best result
 
 
 ### Benefits of CatBoost Classifier
@@ -240,12 +241,14 @@ CatBoost was studied using available online resources. The following are the ben
 
 - CatBoost ensures highly accurate model building with great GPU or CPU training speed
 - It works well with categorical variables without the need to preprocess them (methods like one-hot encoding is not required to convert variables)
-- It provides rich inherent visualizations like Feature importance, training process visualization which helps in understanding the model output 
-- It is simple to use with Python package
 - Catboost requires minimal data preparation
-- Why choose Catboost over other gradient boosting on decision trees (GBDT) algorithms?
-  - Catboost prediction time is 13-16 times faster than XGBoost and LightGBM according to its creator Yandex researchers and engineers.
-  - Catboost default parameters offers a better starting point than other GB algorithms which is especially useful for ML beginners.
+- It provides rich inherent visualizations like feature importance, training process visualization which helps in understanding the model output 
+- It is simple to use with Python package
+
+Advantage of Catboost over other gradient boosting on decision trees (GBDT) algorithms:
+
+- Catboost prediction time is 13-16 times faster than XGBoost and LightGBM according to its creator Yandex researchers and engineers
+- Catboost default parameters offers a better starting point than other gradient boost algorithms which is especially useful for Machine Learning beginners
 
 ### Model Features Comparison to Dataset 
 
