@@ -247,6 +247,37 @@ CatBoost was studied using available online resources. The following are the ben
   - Catboost prediction time is 13-16 times faster than XGBoost and LightGBM according to its creator Yandex researchers and engineers.
   - Catboost default parameters offers a better starting point than other GB algorithms which is especially useful for ML beginners.
 
+## Additional Analysis - Predicting ICU Entry and Intubation
+
+In further exploration, we wanted to look at which conditions were most important in contributing to a severe case of COVID-19, but not specifically death. 
+
+We used the same CatBoost Classifier model and adjusted our target variable from 'survived' to 'icu' so as to predict a patient's likelihood of being admitted to an Intensive Care Unit (ICU).  
+
+**Running 100 iterations for this ICU prediction**: 
+
+
+- the model had an accuracy of 71%:
+
+![ICU accuracy]()
+
+- the model's feature importance was as follows:
+
+![ICU feature importance](Images/ML_images/CatBoost100_FeatureImportance_ICU.PNG)
+
+
+We also adjusted the model's target variable to 'intubed' to predict if a patient's is likely to be intubated.
+
+**Running 100 iterations for intubation prediction**:
+
+- model had an accuracy of 71%:
+
+![Intubation accuracy]()
+
+- the model's feature importance was as follows:
+
+![intubation feature importance](Images/ML_images/CatBoost100_FeatureImportance_Intubed.PNG)
+
+It is interesting to see that the top two most influential conditions, diabetes and hypertension, are the same across all three prediction models (with obesity the 3rd most important feature for both survival and ICU entry), reinforcing that patients with these particular conditions are at a greater risk of a severe COVID-19 case. 
 
 ## GIT Folder Structure
 
