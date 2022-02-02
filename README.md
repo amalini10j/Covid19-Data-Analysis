@@ -247,6 +247,49 @@ CatBoost was studied using available online resources. The following are the ben
   - Catboost prediction time is 13-16 times faster than XGBoost and LightGBM according to its creator Yandex researchers and engineers.
   - Catboost default parameters offers a better starting point than other GB algorithms which is especially useful for ML beginners.
 
+### Model Features Comparison to Dataset 
+
+When examining these top three features (diabetes, hypertension, and obesity) in our dataset, we can really see the importance of these conditions through their total patient counts and survival percentages. 
+
+![top features dataset analysis](Images/TopFeatures_Dataset.PNG)
+
+These three conditions were the most pervasive in our COVID-19 postive patient dataset, with diabetes reporting 36,040 patients, hypertension with 44,150 patients, and obesity with 43,098 patients. For reference, the next most pervasive condition was tobacco use with rough 17,045 patients reported, followed by asthma with only about 6,045 patients.
+Next, after accounting for these larger and relatively similar sample sizes, it appears that the higher the death percentage roughly translates to the greater feature importance in the model. As these 3 conditions have similar sample sizes, diabetes ranks as the top condition with it's slighly higher death percentage.
+
+Some other conditions do have higher death percentages, but they are limited by smaller sample sizes, and so are considered less important in the model prediction. For example, COPD has a death percentage of 34.43% but only 3,857 patients in the dataset reported having COPD, and so it is ranked as only fourth in feature importance for the prediction model.
+
+
+## Additional Analysis - Predicting ICU Entry and Intubation
+
+In further exploration, we wanted to look at which conditions were most important in contributing to a severe case of COVID-19, but not specifically death. 
+
+We used the same CatBoost Classifier model and adjusted our target variable from 'survived' to 'icu' so as to predict a patient's likelihood of being admitted to an Intensive Care Unit (ICU).  
+
+**Running 100 iterations for this ICU prediction**: 
+
+
+- the model had an accuracy of 71%:
+
+![ICU accuracy](Images/ML_images/CatBoost100_ICU_Accuracy.PNG)
+
+- the model's feature importance was as follows:
+
+![ICU feature importance](Images/ML_images/CatBoost100_FeatureImportance_ICU.PNG)
+
+
+We also adjusted the model's target variable to 'intubed' to predict if a patient's is likely to be intubated.
+
+**Running 100 iterations for intubation prediction**:
+
+- model had an accuracy of 71%:
+
+![Intubation accuracy](Images/ML_images/CatBoost100_Intubed_Accuracy.PNG)
+
+- the model's feature importance was as follows:
+
+![intubation feature importance](Images/ML_images/CatBoost100_FeatureImportance_Intubed.PNG)
+
+It is interesting to see that the top two most influential conditions, diabetes and hypertension, are the same across all three prediction models (with obesity the 3rd most important feature for both survival and ICU entry), reinforcing that patients with these particular conditions are at a greater risk of a severe COVID-19 case. 
 
 ## GIT Folder Structure
 
