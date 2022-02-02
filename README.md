@@ -237,15 +237,18 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 
 ### Benefits of CatBoost Classifier
 
-CatBoost was studied using available online resources. The following are the benefits of using CatBoost:
+**CatBoost was studied using available online resources. The following are the benefits of using CatBoost:**
 
 - CatBoost ensures highly accurate model building with great GPU or CPU training speed
 - It works well with categorical variables without the need to preprocess them (methods like one-hot encoding is not required to convert variables)
 - Catboost requires minimal data preparation
 - It provides rich inherent visualizations like feature importance, training process visualization which helps in understanding the model output 
 - It is simple to use with Python package
+- The gradient boosting method generates decision trees one after another, where the result of one tree is used to improve the next one which helps in improving overall model accuracy
+- CatBoost is fast even after increasing the tree depth because it generates symmetric trees
 
-Advantage of Catboost over other gradient boosting on decision trees (GBDT) algorithms:
+
+**Advantage of Catboost over other gradient boosting on decision trees (GBDT) algorithms:**
 
 - Catboost prediction time is 13-16 times faster than XGBoost and LightGBM according to its creator Yandex researchers and engineers
 - Catboost default parameters offers a better starting point than other gradient boost algorithms which is especially useful for Machine Learning beginners
