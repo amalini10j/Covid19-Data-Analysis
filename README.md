@@ -230,8 +230,8 @@ Below is the entity relation diagrams, showing the relationship among the 2 out 
 
 ![CatBoost_Confusion_Matrix](Images/ML_images/ConfusionMatrix_Patient_Death.png)
 
-	- The recall is an important parameter for this model as false negative prediction of death is 	  not desirable
-	- After multiple iterations, the recall achieved for predicting patient death was close to 	  60%
+	- The recall is an important parameter for this model as false negative prediction of death is not desirable
+	- After multiple iterations, the recall achieved for predicting patient death was close to 60%
 	- The next steps here will be to work on further optimizing the model to improve recall
 
 - The above model gave a good accuracy of 88% and the feature importance graph had a good representation of all features
